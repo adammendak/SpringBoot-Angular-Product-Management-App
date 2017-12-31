@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ProductsComponent implements OnInit {
 
   pageTitle :string = "Product List";
+  showImage : boolean = false;
   products :any[] =
     [{
       "productId": 1,
@@ -40,9 +41,16 @@ export class ProductsComponent implements OnInit {
       "imageUrl": "http://openclipart.org/image/300px/svg_to_png/73/rejon_Hammer.png"
     }];
 
+  imageWidth : number = 500;
+  imageMargin : number = 2;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toggleImg() : void {
+    this.showImage = !this.showImage;
   }
 
 }
