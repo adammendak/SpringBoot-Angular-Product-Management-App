@@ -9,6 +9,7 @@ export class ProductsComponent implements OnInit {
 
   pageTitle :string = "Product List";
   showImage : boolean = false;
+  listFilter : string = 'cart';
   products :any[] =
     [{
       "productId": 1,
