@@ -12,6 +12,7 @@ export class ProductsComponent implements OnInit {
   pageTitle :string = "Product List";
   showImage :boolean = false;
   _listFilter :string;
+  errorMessage :string;
 
   // get listFilter() :string {
   //   return this._listFilter;
@@ -33,7 +34,9 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.products = this._productService.getProducts();
+    this._productService.getProducts()
+      .subscribe(products => this.products = products,
+        error => this.errorMessage = <any>error);
     this.filteredProducts = this.products;
   }
 
