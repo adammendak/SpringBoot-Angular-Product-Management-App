@@ -10,6 +10,8 @@ import { StarComponent } from './products/star/star.component';
 import {ProductService} from "./products/product.service";
 import {HttpClientModule} from "@angular/common/http";
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import {RouterModule} from "@angular/router";
 
 
 @NgModule({
@@ -18,12 +20,20 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
     ProductsComponent,
     ConvertToSpacesPipe,
     StarComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      {path: 'products', component: ProductsComponent },
+      {path: 'product/:id', component: ProductDetailComponent},
+      {path: 'welcome', component: WelcomeComponent},
+      {path: '', redirectTo: 'welcome', pathMatch: 'full'},
+      {path: '**', redirectTo: 'welcome', pathMatch: 'full'}
+    ])
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

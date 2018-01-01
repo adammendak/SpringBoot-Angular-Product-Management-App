@@ -1,1 +1,14 @@
-<app-products></app-products>
+<nav>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="nav navbar-nav">
+      <li><a [routerLink]="['/welcome']">Home</a></li>
+      <li><a [routerLink]="['/products']">Product List</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
+
+</div>
+
+
