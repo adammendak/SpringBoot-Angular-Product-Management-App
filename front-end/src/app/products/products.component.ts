@@ -35,9 +35,12 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit() {
     this._productService.getProducts()
-      .subscribe(products => this.products = products,
+      .subscribe(products =>{
+
+      this.products = products,
+        this.filteredProducts = this.products},
         error => this.errorMessage = <any>error);
-    this.filteredProducts = this.products;
+
   }
 
   toggleImg() : void {
