@@ -32,7 +32,7 @@
                      [style.margin.px] = "imageMargin"
                      *ngIf="showImage">
             </td>
-            <td>{{product.productName}}</td>
+            <td><a routerLink="['/product', product.procuctId]">{{product.productName}}</a></td>
             <td>{{product.productCode | lowercase | convertToSpaces : '-'}}</td>
             <td>{{product.releaseDate}}</td>
             <td>{{product.price | currency:'USD':true:'1.2-2'}}</td>
