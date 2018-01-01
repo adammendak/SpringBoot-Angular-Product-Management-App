@@ -68,6 +68,10 @@ export class ProductsComponent implements OnInit {
     this.showImage = !this.showImage;
   }
 
+  onRatingClicked(message :string) :void {
+    this.pageTitle= "Product List: " + message;
+  }
+
   // performFiler(filterBy :string) : IProduct[] {
   //   filterBy = filterBy.toLocaleLowerCase();
   //   return this.products.filter((product: IProduct) => {
