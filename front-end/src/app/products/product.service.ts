@@ -9,8 +9,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class ProductService {
 
-  // private url :string = "http://localhost:8080/api/product";
-private url = "./app/products.json";
+private url = "http://localhost:8080/api/product";
 
   constructor(private _http: HttpClient) {
   }

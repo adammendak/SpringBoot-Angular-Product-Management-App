@@ -40,7 +40,7 @@ public class Product {
     @Min(1)
     @Max(5)
     @Column(name = "star_rating")
-    private Integer starRating;
+    private Double starRating;
 
     @Column(name = "image_url")
     private String imageUrl;
