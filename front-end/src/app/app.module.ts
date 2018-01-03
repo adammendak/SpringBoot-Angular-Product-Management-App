@@ -12,6 +12,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import {RouterModule} from "@angular/router";
+import { NewProductComponent } from './products/new-product/new-product.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {RouterModule} from "@angular/router";
     ConvertToSpacesPipe,
     StarComponent,
     ProductDetailComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    NewProductComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +33,7 @@ import {RouterModule} from "@angular/router";
       {path: 'products', component: ProductsComponent },
       {path: 'product/:id', component: ProductDetailComponent},
       {path: 'welcome', component: WelcomeComponent},
+      {path: 'products/new', component: NewProductComponent},
       {path: '', redirectTo: 'welcome', pathMatch: 'full'},
       {path: '**', redirectTo: 'welcome', pathMatch: 'full'}
     ])
