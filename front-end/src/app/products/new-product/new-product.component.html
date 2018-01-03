@@ -1,3 +1,17 @@
-<p>
-  new-product works!
-</p>
+<div class="row">
+  <h3> Create new product here </h3>
+
+  <form #form="ngForm">
+    <div class="form-group">
+      <label for="productNameId">Product Name</label>
+      <input id="productNameId" class="form-control" type="text" required placeholder="name" name="name" ngModel>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" name="starRating" ngModel>Rating
+      </label>
+    </div>
+    <button class="btn btn-primary" type="submit" name="Submit">Submit</button>
+  </form>
+
+</div>
