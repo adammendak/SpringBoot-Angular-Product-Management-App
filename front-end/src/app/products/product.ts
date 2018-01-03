@@ -1,7 +1,7 @@
 export interface IProduct {
-  productId: number,
-  productName: string,
-  productCode: string,
+  id: number,
+  name: string,
+  code: string,
   releaseDate: string,
   description: string,
   price: number,
@@ -11,9 +11,9 @@ export interface IProduct {
 
 export class Product implements  IProduct {
 
-  productId: number;
-  productName: string;
-  productCode: string;
+  id: number;
+  name: string;
+  code: string;
   releaseDate: string;
   description: string;
   price: number;

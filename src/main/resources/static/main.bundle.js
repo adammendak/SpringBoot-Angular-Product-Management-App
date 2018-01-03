@@ -271,8 +271,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ProductService = (function () {
     function ProductService(_http) {
         this._http = _http;
-        // private url :string = "http://localhost:8080/api/product";
-        this.url = "./app/products.json";
+        this.url = "http://localhost:8080/api/product";
     }
     ProductService.prototype.getProducts = function () {
         return this._http.get(this.url)
@@ -305,7 +304,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "thead {\n  color: #337AB7;\n}\n", ""]);
+exports.push([module.i, "thead {\n  color: #337AB7;\n}\nimg {\n  max-width: 100px;\n  margin: 2px;\n}\n", ""]);
 
 // exports
 
@@ -318,7 +317,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/products/products.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"panel panel-primary\">\n  <div class=\"panel-heading\">\n    {{pageTitle}}\n  </div>\n  <div class=\"panel-body\">\n    <div class=\"row\">\n      <div class=\"col-md-2\">Filter by:</div>\n      <div class=\"col-md-4\">\n        <input type=\"text\" [(ngModel)] = 'listFilter'>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-md-6\"><h3>Filtered by: {{listFilter}}</h3></div>\n    </div>\n    <div class=\"table-responsive\">\n      <table class=\"table\" *ngIf=\"products && products.length\">\n        <thead>\n          <tr>\n            <th>\n              <button class=\"btn btn-primary\" (click)=\"toggleImg()\"> {{showImage ? 'Hide' : 'Show'}} Image</button>\n            </th>\n            <th>Product</th>\n            <th>Code</th>\n            <th>Available</th>\n            <th>Price</th>\n            <th>5 star rating</th>\n          </tr>\n          <tr *ngFor=\"let product of filteredProducts\">\n            <td><img [src]=\"product.imageUrl\"\n                     [title] = \"product.productName\"\n                     [style.width.px] = \"imageWidth\"\n                     [style.margin.px] = \"imageMargin\"\n                     *ngIf=\"showImage\">\n            </td>\n            <td><a routerLink=\"['/product', product.procuctId]\">{{product.productName}}</a></td>\n            <td>{{product.productCode | lowercase | convertToSpaces : '-'}}</td>\n            <td>{{product.releaseDate}}</td>\n            <td>{{product.price | currency:'USD':true:'1.2-2'}}</td>\n            <td><app-star [rating]=\"product.starRating\"\n                          (ratingClicked) =\"onRatingClicked($event)\"></app-star></td>\n          </tr>\n        </thead>\n        <tbody>\n\n        </tbody>\n      </table>\n    </div>\n    <div *ngIf=\"!products\">\n      <p>There are no products to show</p>\n    </div>\n\n  </div>\n</div>\n"
+module.exports = "<div class=\"panel panel-primary\">\n  <div class=\"panel-heading\">\n    {{pageTitle}}\n  </div>\n  <div class=\"panel-body\">\n    <div class=\"row\">\n      <div class=\"col-md-2\">Filter by:</div>\n      <div class=\"col-md-4\">\n        <input type=\"text\" [(ngModel)] = 'listFilter'>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-md-6\"><h3>Filtered by: {{listFilter}}</h3></div>\n    </div>\n    <div class=\"table-responsive\">\n      <table class=\"table\" *ngIf=\"products && products.length\">\n        <thead>\n          <tr>\n            <th>\n              <button class=\"btn btn-primary\" (click)=\"toggleImg()\"> {{showImage ? 'Hide' : 'Show'}} Image</button>\n            </th>\n            <th>Product</th>\n            <th>Code</th>\n            <th>Available</th>\n            <th>Price</th>\n            <th>5 star rating</th>\n          </tr>\n          <tr *ngFor=\"let product of filteredProducts\">\n            <td><img [src]=\"product.imageUrl\"\n                     [title] = \"product.productName\"\n                     [style.width.px] = \"imageWidth\"\n                     [style.margin.px] = \"imageMargin\"\n                     *ngIf=\"showImage\">\n            </td>\n            <td><a routerLink=\"['/product', product.procuctId]\">{{product.name}}</a></td>\n            <td>{{product.code | lowercase | convertToSpaces : '-'}}</td>\n            <td>{{product.releaseDate}}</td>\n            <td>{{product.price | currency:'USD':true:'1.2-2'}}</td>\n            <td><app-star [rating]=\"product.starRating\"\n                          (ratingClicked) =\"onRatingClicked($event)\"></app-star></td>\n          </tr>\n        </thead>\n        <tbody>\n\n        </tbody>\n      </table>\n    </div>\n    <div *ngIf=\"!products\">\n      <p>There are no products to show</p>\n    </div>\n\n  </div>\n</div>\n"
 
 /***/ }),
 
