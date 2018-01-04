@@ -35,5 +35,18 @@ public class Bootstrap implements CommandLineRunner{
 
         logger.info("adding product {} into DB", product1.getName());
 
+        Product product2 = new Product();
+        product2.setName("Garden Cart");
+        product2.setCode("GDN-0023");
+        product2.setReleaseDate("March 18, 2016");
+        product2.setDescription("15 gallon capacity rolling garden cart");
+        product2.setPrice(BigDecimal.valueOf(32.99D));
+        product2.setStarRating(4.2D);
+        product2.setImageUrl("http://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png");
+
+        productRepository.save(product2);
+
+        logger.info("adding product {} into DB", product2.getName());
+
     }
 }
