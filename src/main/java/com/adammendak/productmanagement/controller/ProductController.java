@@ -54,6 +54,19 @@ public class ProductController {
         }
     }
 
+    @DeleteMapping
+    public ResponseEntity deleteProduct(@PathVariable Long id) {
+        Optional<Product> productOptional = productRepository.findById(id);
+        if(productOptional.isPresent()) {
+            logger.info("deleting product {}", productOptional.get().getName());
+            productRepository.delete(id);
+            return ResponseEntity.status(HttpStatus.OK).body("product deleted");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("product not in DB");
+
+        }
+    }
+
     @PostMapping
     public ResponseEntity createNewProduct(@Valid @RequestBody Product product) {
 
