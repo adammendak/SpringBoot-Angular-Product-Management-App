@@ -1,6 +1,7 @@
 package com.adammendak.productmanagement.controller;
 
 import com.adammendak.productmanagement.model.Product;
+import com.adammendak.productmanagement.model.dto.ProductDto;
 import com.adammendak.productmanagement.repository.ProductRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -65,6 +66,12 @@ public class ProductController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("product not in DB");
 
         }
+    }
+
+    @PutMapping
+    public ResponseEntity updateProduct(@Valid @RequestBody ProductDto productDto) {
+        //TODO create productDTO
+        return ResponseEntity.status(HttpStatus.OK).body("in progress");
     }
 
     @PostMapping
