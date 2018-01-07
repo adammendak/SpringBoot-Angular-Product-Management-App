@@ -3,6 +3,7 @@ package com.adammendak.productmanagement.controller;
 import com.adammendak.productmanagement.model.Product;
 import com.adammendak.productmanagement.model.dto.ProductDto;
 import com.adammendak.productmanagement.repository.ProductRepository;
+import com.adammendak.productmanagement.service.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
@@ -20,6 +21,7 @@ public class ProductController {
 
     private final Logger logger = LoggerFactory.getLogger(ProductController.class);
     private ProductRepository productRepository;
+    private ProductService productService;
 
     public ProductController(ProductRepository productRepository) {
         this.productRepository = productRepository;
@@ -32,7 +34,7 @@ public class ProductController {
 
     @GetMapping
     public ResponseEntity getAllTheProducts(){
-        List<Product> listOfAllProducts = productRepository.findAll();
+        List<Product> listOfAllProducts = productService.findAll();
 
         if(listOfAllProducts.size() != 0) {
             logger.info("returning all products, size of array {}", listOfAllProducts.size());
