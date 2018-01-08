@@ -13,6 +13,7 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
 import { WelcomeComponent } from './welcome/welcome.component';
 import {RouterModule} from "@angular/router";
 import { NewProductComponent } from './products/new-product/new-product.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { NewProductComponent } from './products/new-product/new-product.componen
     StarComponent,
     ProductDetailComponent,
     WelcomeComponent,
-    NewProductComponent
+    NewProductComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -34,8 +36,9 @@ import { NewProductComponent } from './products/new-product/new-product.componen
       {path: 'product/:id', component: ProductDetailComponent},
       {path: 'welcome', component: WelcomeComponent},
       {path: 'products/new', component: NewProductComponent},
+      {path: 'login', component: LoginComponent},
       {path: '', redirectTo: 'welcome', pathMatch: 'full'},
-      {path: '**', redirectTo: 'welcome', pathMatch: 'full'}
+      {path: '**', redirectTo: 'welcome', pathMatch: 'full'},
     ])
   ],
   providers: [ProductService],

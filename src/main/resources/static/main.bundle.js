@@ -25,7 +25,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "nav {\n  margin-bottom: 10px;\n}\n", ""]);
 
 // exports
 
@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav>\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n    <ul class=\"nav navbar-nav\">\n      <li><a [routerLink]=\"['/welcome']\">Home</a></li>\n      <li><a [routerLink]=\"['/products']\">Product List</a></li>\n    </ul>\n  </div>\n</nav>\n<div class=\"container\">\n  <router-outlet></router-outlet>\n\n</div>\n\n\n"
+module.exports = "<nav>\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n    <ul class=\"nav navbar-nav\">\n      <li><a [routerLink]=\"['/welcome']\">Home</a></li>\n      <li><a [routerLink]=\"['/products']\">Product List</a></li>\n      <li><a [routerLink]=\"['/products/new']\">New Product</a></li>\n      <li><a [routerLink]=\"['/login']\">Login</a></li>\n    </ul>\n  </div>\n</nav>\n<div class=\"container\">\n  <router-outlet></router-outlet>\n\n</div>\n\n\n"
 
 /***/ }),
 
@@ -90,12 +90,16 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__products_product_detail_product_detail_component__ = __webpack_require__("../../../../../src/app/products/product-detail/product-detail.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__welcome_welcome_component__ = __webpack_require__("../../../../../src/app/welcome/welcome.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__products_new_product_new_product_component__ = __webpack_require__("../../../../../src/app/products/new-product/new-product.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__login_login_component__ = __webpack_require__("../../../../../src/app/login/login.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -119,7 +123,9 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_5__products_convert_to_spaces_pipe__["a" /* ConvertToSpacesPipe */],
                 __WEBPACK_IMPORTED_MODULE_6__products_star_star_component__["a" /* StarComponent */],
                 __WEBPACK_IMPORTED_MODULE_9__products_product_detail_product_detail_component__["a" /* ProductDetailComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__welcome_welcome_component__["a" /* WelcomeComponent */]
+                __WEBPACK_IMPORTED_MODULE_10__welcome_welcome_component__["a" /* WelcomeComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__products_new_product_new_product_component__["a" /* NewProductComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__login_login_component__["a" /* LoginComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -129,8 +135,10 @@ var AppModule = (function () {
                     { path: 'products', component: __WEBPACK_IMPORTED_MODULE_3__products_products_component__["a" /* ProductsComponent */] },
                     { path: 'product/:id', component: __WEBPACK_IMPORTED_MODULE_9__products_product_detail_product_detail_component__["a" /* ProductDetailComponent */] },
                     { path: 'welcome', component: __WEBPACK_IMPORTED_MODULE_10__welcome_welcome_component__["a" /* WelcomeComponent */] },
+                    { path: 'products/new', component: __WEBPACK_IMPORTED_MODULE_12__products_new_product_new_product_component__["a" /* NewProductComponent */] },
+                    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_13__login_login_component__["a" /* LoginComponent */] },
                     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-                    { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
+                    { path: '**', redirectTo: 'welcome', pathMatch: 'full' },
                 ])
             ],
             providers: [__WEBPACK_IMPORTED_MODULE_7__products_product_service__["a" /* ProductService */]],
@@ -138,6 +146,67 @@ var AppModule = (function () {
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/login/login.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/login/login.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  login works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/login/login.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var LoginComponent = (function () {
+    function LoginComponent() {
+    }
+    LoginComponent.prototype.ngOnInit = function () {
+    };
+    LoginComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-login',
+            template: __webpack_require__("../../../../../src/app/login/login.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/login/login.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], LoginComponent);
+    return LoginComponent;
 }());
 
 
@@ -169,6 +238,70 @@ var ConvertToSpacesPipe = (function () {
         })
     ], ConvertToSpacesPipe);
     return ConvertToSpacesPipe;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/products/new-product/new-product.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/products/new-product/new-product.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\n  <h3> Create new product here </h3>\n\n  <form #form=\"ngForm\">\n    <div class=\"form-group\">\n      <label for=\"productNameId\">Product Name</label>\n      <input id=\"productNameId\" class=\"form-control\" type=\"text\" required placeholder=\"name\" name=\"name\" ngModel>\n    </div>\n    <div class=\"checkbox\">\n      <label>\n        <input type=\"checkbox\" name=\"starRating\" ngModel>Rating\n      </label>\n    </div>\n    <button class=\"btn btn-primary\" type=\"submit\" name=\"Submit\">Submit</button>\n  </form>\n\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/products/new-product/new-product.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewProductComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__product_service__ = __webpack_require__("../../../../../src/app/products/product.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var NewProductComponent = (function () {
+    function NewProductComponent(_productService) {
+        this._productService = _productService;
+    }
+    NewProductComponent.prototype.ngOnInit = function () {
+    };
+    NewProductComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-new-product',
+            template: __webpack_require__("../../../../../src/app/products/new-product/new-product.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/products/new-product/new-product.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__product_service__["a" /* ProductService */]])
+    ], NewProductComponent);
+    return NewProductComponent;
 }());
 
 

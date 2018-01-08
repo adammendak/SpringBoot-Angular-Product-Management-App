@@ -23,8 +23,9 @@ public class ProductController {
     private ProductRepository productRepository;
     private ProductService productService;
 
-    public ProductController(ProductRepository productRepository) {
+    public ProductController(ProductRepository productRepository, ProductService productService) {
         this.productRepository = productRepository;
+        this.productService = productService;
         addHeaders(this.httpHeaders);
     }
 
