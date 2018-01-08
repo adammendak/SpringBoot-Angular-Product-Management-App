@@ -48,7 +48,7 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public ResponseEntity getProduct(@PathVariable Long id) {
-        Optional<Product> product = productRepository.findById(id);
+        Optional<Product> product = productService.findOneById(id);
 
         if(product.isPresent()) {
             return ResponseEntity.status(HttpStatus.OK).body(product.get());
