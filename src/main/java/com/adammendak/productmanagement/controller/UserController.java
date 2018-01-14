@@ -23,14 +23,14 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity getUserById(@PathVariable Long id) {
+    public ResponseEntity getUserById(@PathVariable Long id) throws ResourceNotFoundException{
 
         try {
             User userFromDB = userService.findOneById(id);
             return ResponseEntity.status(HttpStatus.CREATED).body(userFromDB);
         } catch (ResourceNotFoundException e) {
             log.info(e.getMessage());
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+            throw e;
         }
     }
 }
