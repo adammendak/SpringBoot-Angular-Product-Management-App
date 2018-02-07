@@ -10,6 +10,10 @@
       <label for="productCodeId">Product Code</label>
       <input id="productCodeId" class="form-control" type="text" placeholder="code" name="code" [(ngModel)] = "product.code">
     </div>
+    <div class="form-group">
+      <label for="productReleaseDateId">Product Available</label>
+      <input id="productReleaseDateId" class="form-control" type="text" placeholder="release Date" [(ngModel)] = "product.releaseDate">
+    </div>
     <div class="checkbox">
       <label>
         <input type="checkbox" name="starRating" ngModel>Rating
@@ -20,6 +24,8 @@
   <br>
   product name : {{product.name}} <br>
   product code : {{product.code}} <br>
+  product release date : {{product.releaseDate}} <br>
+
 
 
 </div>

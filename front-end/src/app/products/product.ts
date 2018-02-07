@@ -31,4 +31,8 @@ export class Product implements  IProduct {
   setCode(code: string) : void {
     this.code = code;
   }
+
+  setReleaseDate(date: string ) :void {
+    this.releaseDate = date;
+  }
 }

@@ -14,7 +14,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import {RouterModule} from "@angular/router";
 import { NewProductComponent } from './products/new-product/new-product.component';
 import { LoginComponent } from './login/login.component';
-
+import {routes} from "./routes";
 
 @NgModule({
   declarations: [
@@ -31,15 +31,7 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      {path: 'products', component: ProductsComponent },
-      {path: 'product/:id', component: ProductDetailComponent},
-      {path: 'welcome', component: WelcomeComponent},
-      {path: 'products/new', component: NewProductComponent},
-      {path: 'login', component: LoginComponent},
-      {path: '', redirectTo: 'welcome', pathMatch: 'full'},
-      {path: '**', redirectTo: 'welcome', pathMatch: 'full'},
-    ])
+    RouterModule.forRoot(routes)
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

@@ -18,6 +18,7 @@ export class NewProductComponent implements OnInit {
   ngOnInit() {
     this.product.setName("test");
     this.product.setCode("1234");
+    this.product.setReleaseDate("assssd");
   }
 
 }
