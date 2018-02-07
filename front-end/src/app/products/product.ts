@@ -23,4 +23,12 @@ export class Product implements  IProduct {
   calculateDiscount(percentage: number) : number {
     return this.price - (this.price * percentage/100);
   }
+
+  setName(name: string) :void {
+    this.name = name;
+  }
+
+  setCode(code: string) : void {
+    this.code = code;
+  }
 }
