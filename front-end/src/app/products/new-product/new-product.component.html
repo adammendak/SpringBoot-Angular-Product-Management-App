@@ -4,7 +4,7 @@
   <form #form="ngForm">
     <div class="form-group">
       <label for="productNameId">Product Name</label>
-      <input id="productNameId" class="form-control" type="text" required placeholder="name" name="name" [(ngModel)] = "product.name">
+      <input #productName id="productNameId" class="form-control" type="text" required placeholder="name" name="name" [(ngModel)] = "product.name">
     </div>
     <div class="form-group">
       <label for="productCodeId">Product Code</label>
@@ -12,7 +12,7 @@
     </div>
     <div class="form-group">
       <label for="productReleaseDateId">Product Available</label>
-      <input id="productReleaseDateId" class="form-control" type="text" placeholder="release Date" [(ngModel)] = "product.releaseDate">
+      <input id="productReleaseDateId" class="form-control" type="date" placeholder="release Date" name="releaseDate" [(ngModel)] = "product.releaseDate">
     </div>
     <div class="checkbox">
       <label>
@@ -25,7 +25,6 @@
   product name : {{product.name}} <br>
   product code : {{product.code}} <br>
   product release date : {{product.releaseDate}} <br>
-
-
+  product name classes : {{productName.className}} <br>
 
 </div>
