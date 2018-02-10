@@ -35,4 +35,20 @@ export class Product implements  IProduct {
   setReleaseDate(date: string ) :void {
     this.releaseDate = date;
   }
+
+  setDescription(description: string) :void {
+    this.description = description;
+  }
+
+  setPrice(price :number) :void {
+    this.price = price;
+  }
+
+  setStarRating(rating: number) :void {
+    this.starRating = rating;
+  }
+
+  setImageUrl(imageUrl: string) :void {
+    this.imageUrl = imageUrl;
+  }
 }
