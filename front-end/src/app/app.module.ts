@@ -15,6 +15,7 @@ import {RouterModule} from "@angular/router";
 import { NewProductComponent } from './products/new-product/new-product.component';
 import { LoginComponent } from './login/login.component';
 import {routes} from "./routes";
+import {HttpModule} from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {routes} from "./routes";
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    HttpModule,
     RouterModule.forRoot(routes)
   ],
   providers: [ProductService],

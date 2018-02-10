@@ -17,7 +17,7 @@ export class NewProductComponent implements OnInit {
 
 
   ngOnInit() {
-    this.product.setName("test name bla bla ");
+    // this.product.setName("test name bla bla ");
     // this.product.setCode("1234");
     // this.product.setReleaseDate("assssd");
     // this.product.setDescription("testDescription");
@@ -27,8 +27,10 @@ export class NewProductComponent implements OnInit {
   }
 
   postProdut(form: NgForm) {
-    // console.log(this.product);
-    this._productService.postProdut(this.product);
+    this._productService.postProdut(this.product).subscribe(
+      data => console.log('success', data),
+      err => console.log('error', err)
+    )
   }
 
 }

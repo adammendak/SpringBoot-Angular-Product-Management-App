@@ -26,12 +26,8 @@
     <div class="form-group">
       <label for="productRatingId">Product Rating</label>
       <select #productPrice id="productRatingId" class="form-control" [(ngModel)] = "product.starRating">
-        <option value="default">Select Rating</option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
+        <option value="default" >Select Rating</option>
+        <option *ngFor="let number of [1,2,3,4,5]">{{number}}</option>
       </select>
     </div>
     <div class="form-group">
