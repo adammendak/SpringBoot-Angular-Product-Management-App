@@ -2,29 +2,31 @@
   <h3> Create new product here </h3>
 
   <form #form="ngForm">
-    <div class="form-group">
-      <label for="productNameId">Product Name</label>
-      <input #productName id="productNameId" class="form-control" type="text" required placeholder="name" name="name" [(ngModel)] = "product.name">
+    <div class="form-group" [class.has-error]="productName.invalid && productName.touched">
+      <label for="productNameId" class="control-label">Product Name</label>
+      <input #productName="ngModel" id="productNameId" class="form-control" type="text" required placeholder="name" name="name" [(ngModel)] = "product.name">
+      <div class="alert alert-danger" *ngIf="productName.invalid && productName.touched">Product Name is Required</div>
     </div>
     <div class="form-group">
       <label for="productCodeId">Product Code</label>
-      <input id="productCodeId" class="form-control" type="text" placeholder="code" name="code" [(ngModel)] = "product.code">
+      <input #productCode id="productCodeId" class="form-control" type="text" placeholder="code" name="code" [(ngModel)] = "product.code">
     </div>
     <div class="form-group">
       <label for="productReleaseDateId">Product Available</label>
-      <input id="productReleaseDateId" class="form-control" type="date" placeholder="release Date" name="releaseDate" [(ngModel)] = "product.releaseDate">
+      <input #productAvailable id="productReleaseDateId" class="form-control" type="date" placeholder="release Date" name="releaseDate" [(ngModel)] = "product.releaseDate">
     </div>
     <div class="checkbox">
       <label>
         <input type="checkbox" name="starRating" ngModel>Rating
       </label>
     </div>
-    <button class="btn btn-primary" type="submit" name="Submit">Submit</button>
+    <button class="btn btn-primary" [disabled]="form.invalid" type="submit">Submit</button>
   </form>
   <br>
   product name : {{product.name}} <br>
   product code : {{product.code}} <br>
   product release date : {{product.releaseDate}} <br>
   product name classes : {{productName.className}} <br>
+  product invalid : {{productName.invalid}}
 
 </div>
