@@ -6,6 +6,7 @@ import com.adammendak.productmanagement.repository.ProductRepository;
 import com.adammendak.productmanagement.service.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -91,10 +92,14 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.CREATED).headers(httpHeaders).body(product);
     }
 
+    @Profile(value = "dev")
     private HttpHeaders addHeaders(HttpHeaders httpHeaders) {
 
         //for accesing requests from angular ng serve localhost:4200
+        //could be done by @CrossOrigin
         httpHeaders.add("Access-Control-Allow-Origin", "http://localhost:4200");
+        httpHeaders.add("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
+        httpHeaders.add("Access-Control-Allow-Headers", "Origin, Content-Type, Access-Control-Allow-Origin");
         return httpHeaders;
     }
 }

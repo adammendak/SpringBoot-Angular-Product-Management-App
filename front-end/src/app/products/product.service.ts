@@ -18,25 +18,20 @@ private url = "http://localhost:8080/api/product";
 
   getProducts() :Observable<IProduct[]> {
     return this._http.get<IProduct[]>(this.url)
-      .do(data => console.log("All: " + JSON.stringify(data)));
-      // .catch(this.handleError);
+      .do(data => console.log("All: " + JSON.stringify(data)))
+      .catch(this.handleError);
   }
 
   postProdut(product : Product) :Observable<any>{
     let body = JSON.stringify(product);
     let headers = new Headers({
-      'Content-Type' : 'application/json',
-      'Access-Control-Allow-Origin' : '*'
+      'Content-Type' : 'application/json'
     });
     let options = new RequestOptions({headers: headers});
+
     console.log("product from service : ", product);
     return this.http.post(this.url, body, options).map(this.extractData).catch(this.handleError);
   }
-
-  // private handleError(err :HttpErrorResponse) {
-  //   console.log(err.message);
-  //   return Observable.throw(err.message);
-  // }
 
   private extractData(res: Response) {
     let body = res.json();
