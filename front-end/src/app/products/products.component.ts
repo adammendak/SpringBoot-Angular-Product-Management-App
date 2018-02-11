@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {IProduct} from "./product";
 import {ProductService} from "./product.service";
+import {ToastrServiceProxy} from "../shared/toastr.service";
 
 @Component({
   selector: 'app-products',
@@ -29,18 +30,18 @@ export class ProductsComponent implements OnInit {
   imageWidth : number = 500;
   imageMargin : number = 2;
 
-  constructor(private _productService :ProductService) {
+  constructor(private _productService :ProductService, private _toastr: ToastrServiceProxy) {
     this._listFilter = 'cart';
   }
 
   ngOnInit() {
     this._productService.getProducts()
       .subscribe(products =>{
-
       this.products = products,
         this.filteredProducts = this.products},
         error => this.errorMessage = <any>error);
 
+    this._toastr.info("fetching all products");
   }
 
   toggleImg() : void {

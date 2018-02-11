@@ -16,6 +16,9 @@ import { NewProductComponent } from './products/new-product/new-product.componen
 import { LoginComponent } from './login/login.component';
 import {routes} from "./routes";
 import {HttpModule} from "@angular/http";
+import {ToastrServiceProxy} from "./shared/toastr.service";
+import {ToastrModule} from "ngx-toastr";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -30,12 +33,14 @@ import {HttpModule} from "@angular/http";
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ToastrModule.forRoot()
   ],
-  providers: [ProductService],
+  providers: [ProductService, ToastrServiceProxy],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
