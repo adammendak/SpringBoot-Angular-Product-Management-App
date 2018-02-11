@@ -2,6 +2,7 @@
   <h3> Create new product here </h3>
 
   <form #form="ngForm" (submit)="postProdut(form)">
+    <input #productId type="hidden" id="productId" [(ngModel)] = "product.id">
     <div class="form-group" [class.has-error]="productName.invalid && productName.touched">
       <label for="productNameId" class="control-label">Product Name</label>
       <input #productName="ngModel" id="productNameId" class="form-control" type="text" required placeholder="name" name="name" [(ngModel)] = "product.name">

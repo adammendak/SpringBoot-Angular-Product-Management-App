@@ -81,13 +81,12 @@ public class ProductController {
 
         logger.info("saving product {}", product.getName());
         try {
-            productRepository.save(product);
+            Product savedProduct = productRepository.save(product);
+            return ResponseEntity.status(HttpStatus.CREATED).body(savedProduct);
         } catch (Exception e) {
             logger.info("exception occured {}", e.getMessage());
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(product);
     }
 
 //    @Profile(value = "dev")
