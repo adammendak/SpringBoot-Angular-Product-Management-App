@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/user")
 @Slf4j
+@CorsFilterDev
 public class UserController {
 
     private UserService userService;

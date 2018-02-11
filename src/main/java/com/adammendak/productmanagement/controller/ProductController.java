@@ -18,6 +18,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/product")
+@CorsFilterDev
 public class ProductController {
 
     private final Logger logger = LoggerFactory.getLogger(ProductController.class);
@@ -27,12 +28,9 @@ public class ProductController {
     public ProductController(ProductRepository productRepository, ProductService productService) {
         this.productRepository = productRepository;
         this.productService = productService;
-        addHeaders(this.httpHeaders);
     }
 
-    private HttpHeaders httpHeaders = new HttpHeaders();
-
-
+//    private HttpHeaders httpHeaders = new HttpHeaders();
 
     @GetMapping
     public ResponseEntity getAllTheProducts(){
@@ -41,7 +39,7 @@ public class ProductController {
         if(listOfAllProducts.size() != 0) {
             logger.info("returning all products, size of array {}", listOfAllProducts.size());
 
-            return ResponseEntity.status(HttpStatus.OK).headers(httpHeaders).body(listOfAllProducts);
+            return ResponseEntity.status(HttpStatus.OK).body(listOfAllProducts);
         } else {
             logger.info("no products in DB");
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No objects in the DB");
@@ -86,20 +84,21 @@ public class ProductController {
             productRepository.save(product);
         } catch (Exception e) {
             logger.info("exception occured {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).headers(httpHeaders).body(e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
 
-        return ResponseEntity.status(HttpStatus.CREATED).headers(httpHeaders).body(product);
+        return ResponseEntity.status(HttpStatus.CREATED).body(product);
     }
 
-    @Profile(value = "dev")
-    private HttpHeaders addHeaders(HttpHeaders httpHeaders) {
-
-        //for accesing requests from angular ng serve localhost:4200
-        //could be done by @CrossOrigin
-        httpHeaders.add("Access-Control-Allow-Origin", "http://localhost:4200");
-        httpHeaders.add("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-        httpHeaders.add("Access-Control-Allow-Headers", "Origin, Content-Type, Access-Control-Allow-Origin");
-        return httpHeaders;
-    }
+//    @Profile(value = "dev")
+//    @CrossOrigin(value = "http://localhost:4200")
+//    private HttpHeaders addHeaders(HttpHeaders httpHeaders) {
+//
+//        //for accesing requests from angular ng serve localhost:4200
+//        //could be done by @CrossOrigin
+//        httpHeaders.add("Access-Control-Allow-Origin", "http://localhost:4200");
+//        httpHeaders.add("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
+//        httpHeaders.add("Access-Control-Allow-Headers", "Origin, Content-Type, Access-Control-Allow-Origin");
+//        return httpHeaders;
+//    }
 }
