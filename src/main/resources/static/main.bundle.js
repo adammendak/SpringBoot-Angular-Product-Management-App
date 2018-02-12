@@ -94,12 +94,18 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__login_login_component__ = __webpack_require__("../../../../../src/app/login/login.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__routes__ = __webpack_require__("../../../../../src/app/routes.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__shared_toastr_service__ = __webpack_require__("../../../../../src/app/shared/toastr.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_ngx_toastr__ = __webpack_require__("../../../../ngx-toastr/esm5/ngx-toastr.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/esm5/animations.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -133,12 +139,14 @@ var AppModule = (function () {
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_18__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_8__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_15__angular_http__["c" /* HttpModule */],
-                __WEBPACK_IMPORTED_MODULE_11__angular_router__["c" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_14__routes__["a" /* routes */])
+                __WEBPACK_IMPORTED_MODULE_11__angular_router__["c" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_14__routes__["a" /* routes */]),
+                __WEBPACK_IMPORTED_MODULE_17_ngx_toastr__["a" /* ToastrModule */].forRoot()
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_7__products_product_service__["a" /* ProductService */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_7__products_product_service__["a" /* ProductService */], __WEBPACK_IMPORTED_MODULE_16__shared_toastr_service__["a" /* ToastrServiceProxy */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
@@ -262,7 +270,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/products/new-product/new-product.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <h3> Create new product here </h3>\n\n  <form #form=\"ngForm\" (submit)=\"postProdut(form)\">\n    <div class=\"form-group\" [class.has-error]=\"productName.invalid && productName.touched\">\n      <label for=\"productNameId\" class=\"control-label\">Product Name</label>\n      <input #productName=\"ngModel\" id=\"productNameId\" class=\"form-control\" type=\"text\" required placeholder=\"name\" name=\"name\" [(ngModel)] = \"product.name\">\n      <div class=\"alert alert-danger\" *ngIf=\"productName.invalid && productName.touched\">Product Name is Required</div>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"productCodeId\">Product Code</label>\n      <input #productCode id=\"productCodeId\" class=\"form-control\" type=\"text\" placeholder=\"code\" name=\"code\" [(ngModel)] = \"product.code\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"productReleaseDateId\">Product Available</label>\n      <input #productAvailable id=\"productReleaseDateId\" class=\"form-control\" type=\"date\" placeholder=\"release Date\" name=\"releaseDate\" [(ngModel)] = \"product.releaseDate\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"productDescriptionId\" class=\"control-label\">Product Description</label>\n      <input #productDescription id=\"productDescriptionId\" class=\"form-control\" type=\"text\" placeholder=\"description\" name=\"description\" [(ngModel)] = \"product.description\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"productPriceId\">Product Price</label>\n      <input #productPrice id=\"productPriceId\" class=\"form-control\" type=\"number\" placeholder=\"price\" name=\"price\" [(ngModel)] = \"product.price\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"productRatingId\">Product Rating</label>\n      <select #productPrice id=\"productRatingId\" class=\"form-control\" [(ngModel)] = \"product.starRating\">\n        <option value=\"default\" >Select Rating</option>\n        <option *ngFor=\"let number of [1,2,3,4,5]\">{{number}}</option>\n      </select>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"productImgId\">Img Url</label>\n      <input #productImgUrl id=\"productImgId\" class=\"form-control\" type=\"text\" placeholder=\"img Url\" name=\"img Url\" [(ngModel)]=\"product.imageUrl\">\n    </div>\n    <button class=\"btn btn-primary\" [disabled]=\"form.invalid\" type=\"submit\">Submit</button>\n  </form>\n</div>\n"
+module.exports = "<div class=\"row\">\n  <h3> Create new product here </h3>\n\n  <form #form=\"ngForm\" (submit)=\"postProdut(form)\">\n    <input #productId type=\"hidden\" id=\"productId\" [(ngModel)] = \"product.id\">\n    <div class=\"form-group\" [class.has-error]=\"productName.invalid && productName.touched\">\n      <label for=\"productNameId\" class=\"control-label\">Product Name</label>\n      <input #productName=\"ngModel\" id=\"productNameId\" class=\"form-control\" type=\"text\" required placeholder=\"name\" name=\"name\" [(ngModel)] = \"product.name\">\n      <div class=\"alert alert-danger\" *ngIf=\"productName.invalid && productName.touched\">Product Name is Required</div>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"productCodeId\">Product Code</label>\n      <input #productCode id=\"productCodeId\" class=\"form-control\" type=\"text\" placeholder=\"code\" name=\"code\" [(ngModel)] = \"product.code\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"productReleaseDateId\">Product Available</label>\n      <input #productAvailable id=\"productReleaseDateId\" class=\"form-control\" type=\"date\" placeholder=\"release Date\" name=\"releaseDate\" [(ngModel)] = \"product.releaseDate\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"productDescriptionId\" class=\"control-label\">Product Description</label>\n      <input #productDescription id=\"productDescriptionId\" class=\"form-control\" type=\"text\" placeholder=\"description\" name=\"description\" [(ngModel)] = \"product.description\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"productPriceId\">Product Price</label>\n      <input #productPrice id=\"productPriceId\" class=\"form-control\" type=\"number\" placeholder=\"price\" name=\"price\" [(ngModel)] = \"product.price\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"productRatingId\">Product Rating</label>\n      <select #productPrice id=\"productRatingId\" class=\"form-control\" [(ngModel)] = \"product.starRating\">\n        <option value=\"default\" >Select Rating</option>\n        <option *ngFor=\"let number of [1,2,3,4,5]\">{{number}}</option>\n      </select>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"productImgId\">Img Url</label>\n      <input #productImgUrl id=\"productImgId\" class=\"form-control\" type=\"text\" placeholder=\"img Url\" name=\"img Url\" [(ngModel)]=\"product.imageUrl\">\n    </div>\n    <button class=\"btn btn-primary\" [disabled]=\"form.invalid\" type=\"submit\">Submit</button>\n  </form>\n</div>\n"
 
 /***/ }),
 
@@ -274,6 +282,7 @@ module.exports = "<div class=\"row\">\n  <h3> Create new product here </h3>\n\n 
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__product_service__ = __webpack_require__("../../../../../src/app/products/product.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__product__ = __webpack_require__("../../../../../src/app/products/product.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_toastr_service__ = __webpack_require__("../../../../../src/app/shared/toastr.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -286,9 +295,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var NewProductComponent = (function () {
-    function NewProductComponent(_productService) {
+    function NewProductComponent(_productService, _toastr) {
         this._productService = _productService;
+        this._toastr = _toastr;
         this.product = new __WEBPACK_IMPORTED_MODULE_2__product__["a" /* Product */]();
     }
     NewProductComponent.prototype.ngOnInit = function () {
@@ -301,7 +312,11 @@ var NewProductComponent = (function () {
         // this.product.setImageUrl("test url");
     };
     NewProductComponent.prototype.postProdut = function (form) {
-        this._productService.postProdut(this.product).subscribe(function (data) { return console.log('success', data); }, function (err) { return console.log('error', err); });
+        var _this = this;
+        this._productService.postProdut(this.product).subscribe(function (data) {
+            console.log('success', data);
+            _this._toastr.success("added product");
+        }, function (err) { return console.log('error', err); });
     };
     NewProductComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -309,7 +324,7 @@ var NewProductComponent = (function () {
             template: __webpack_require__("../../../../../src/app/products/new-product/new-product.component.html"),
             styles: [__webpack_require__("../../../../../src/app/products/new-product/new-product.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__product_service__["a" /* ProductService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__product_service__["a" /* ProductService */], __WEBPACK_IMPORTED_MODULE_3__shared_toastr_service__["a" /* ToastrServiceProxy */]])
     ], NewProductComponent);
     return NewProductComponent;
 }());
@@ -414,7 +429,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-// import 'rxjs/add/operator/throw';
 var ProductService = (function () {
     function ProductService(_http, http) {
         this._http = _http;
@@ -423,25 +437,20 @@ var ProductService = (function () {
     }
     ProductService.prototype.getProducts = function () {
         return this._http.get(this.url)
-            .do(function (data) { return console.log("All: " + JSON.stringify(data)); });
-        // .catch(this.handleError);
+            .do(function (data) { return console.log("All: " + JSON.stringify(data)); })
+            .catch(this.handleError);
     };
     ProductService.prototype.postProdut = function (product) {
         var body = JSON.stringify(product);
         var headers = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* Headers */]({
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
+            'Content-Type': 'application/json'
         });
         var options = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["d" /* RequestOptions */]({ headers: headers });
-        console.log("product from service : ", product);
         return this.http.post(this.url, body, options).map(this.extractData).catch(this.handleError);
     };
-    // private handleError(err :HttpErrorResponse) {
-    //   console.log(err.message);
-    //   return Observable.throw(err.message);
-    // }
     ProductService.prototype.extractData = function (res) {
         var body = res.json();
+        console.log("product from service : ", body);
         return body.fields || {};
     };
     ProductService.prototype.handleError = function (err) {
@@ -530,6 +539,7 @@ module.exports = "<div class=\"panel panel-primary\">\n  <div class=\"panel-head
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__product_service__ = __webpack_require__("../../../../../src/app/products/product.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_toastr_service__ = __webpack_require__("../../../../../src/app/shared/toastr.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -541,9 +551,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var ProductsComponent = (function () {
-    function ProductsComponent(_productService) {
+    function ProductsComponent(_productService, _toastr) {
         this._productService = _productService;
+        this._toastr = _toastr;
         this.pageTitle = "Product List";
         this.showImage = false;
         this.products = [];
@@ -558,6 +570,7 @@ var ProductsComponent = (function () {
             _this.products = products,
                 _this.filteredProducts = _this.products;
         }, function (error) { return _this.errorMessage = error; });
+        this._toastr.info("fetching all products");
     };
     ProductsComponent.prototype.toggleImg = function () {
         this.showImage = !this.showImage;
@@ -571,7 +584,7 @@ var ProductsComponent = (function () {
             template: __webpack_require__("../../../../../src/app/products/products.component.html"),
             styles: [__webpack_require__("../../../../../src/app/products/products.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__product_service__["a" /* ProductService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__product_service__["a" /* ProductService */], __WEBPACK_IMPORTED_MODULE_2__shared_toastr_service__["a" /* ToastrServiceProxy */]])
     ], ProductsComponent);
     return ProductsComponent;
 }());
@@ -680,6 +693,51 @@ var routes = [
     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
     { path: '**', redirectTo: 'welcome', pathMatch: 'full' },
 ];
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/toastr.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ToastrServiceProxy; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ngx_toastr__ = __webpack_require__("../../../../ngx-toastr/esm5/ngx-toastr.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ToastrServiceProxy = (function () {
+    function ToastrServiceProxy(toastr) {
+        this.toastr = toastr;
+    }
+    ToastrServiceProxy.prototype.success = function (message, title) {
+        this.toastr.success(message, title);
+    };
+    ToastrServiceProxy.prototype.info = function (message, title) {
+        this.toastr.info(message, title);
+    };
+    ToastrServiceProxy.prototype.warning = function (message, title) {
+        this.toastr.warning(message, title);
+    };
+    ToastrServiceProxy.prototype.error = function (message, title) {
+        this.toastr.error(message, title);
+    };
+    ToastrServiceProxy = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ngx_toastr__["b" /* ToastrService */]])
+    ], ToastrServiceProxy);
+    return ToastrServiceProxy;
+}());
+
 
 
 /***/ }),
