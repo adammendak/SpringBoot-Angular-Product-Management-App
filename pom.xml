@@ -67,7 +67,9 @@
 		<profile>
 
 			<id>dev</id>
-
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 			<dependencies>
 				<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
 				<dependency>
