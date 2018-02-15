@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "prebuild": "npm install",
-    "build": "ng build",
+    "build": "ng build --prod",
     "postbuild": "npm run deploy",
     "predeploy": "rimraf ../src/main/resources/static && mkdirp ../src/main/resources/static/assets",
     "deploy": "copyfiles -f dist/** ../src/main/resources/static/ && copyfiles -f src/assets/** ../src/main/resources/static/assets ",

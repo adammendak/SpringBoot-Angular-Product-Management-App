@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  productImage = 'assets/product.png';
+  productImage = '/assets/product.png';
 
   constructor() { }
 
