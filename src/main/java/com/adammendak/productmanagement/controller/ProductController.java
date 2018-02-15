@@ -3,11 +3,9 @@ package com.adammendak.productmanagement.controller;
 import com.adammendak.productmanagement.model.Product;
 import com.adammendak.productmanagement.model.dto.ProductDto;
 import com.adammendak.productmanagement.repository.ProductRepository;
-import com.adammendak.productmanagement.service.ProductService;
+import com.adammendak.productmanagement.service.ProductServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Profile;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,18 +21,18 @@ public class ProductController {
 
     private final Logger logger = LoggerFactory.getLogger(ProductController.class);
     private ProductRepository productRepository;
-    private ProductService productService;
+    private ProductServiceImpl productServiceImpl;
 
-    public ProductController(ProductRepository productRepository, ProductService productService) {
+    public ProductController(ProductRepository productRepository, ProductServiceImpl productServiceImpl) {
         this.productRepository = productRepository;
-        this.productService = productService;
+        this.productServiceImpl = productServiceImpl;
     }
 
 //    private HttpHeaders httpHeaders = new HttpHeaders();
 
     @GetMapping
     public ResponseEntity getAllTheProducts(){
-        List<Product> listOfAllProducts = productService.findAll();
+        List<Product> listOfAllProducts = productServiceImpl.findAll();
 
         if(listOfAllProducts.size() != 0) {
             logger.info("returning all products, size of array {}", listOfAllProducts.size());
@@ -48,7 +46,7 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public ResponseEntity getProduct(@PathVariable Long id) {
-        Optional<Product> product = productService.findOneById(id);
+        Optional<Product> product = productServiceImpl.findOneById(id);
 
         if(product.isPresent()) {
             return ResponseEntity.status(HttpStatus.OK).body(product.get());

@@ -20,7 +20,7 @@ public class CustomizeResponseEntityExceptionHandler extends ResponseEntityExcep
     public ResponseEntity<Object> handleExceptionResourceNotFoundException(Exception ex, WebRequest request) {
 
         logger.info("controller advice");
-        ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(), request.getDescription(false));
+        ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(), request.getDescription(true));
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exceptionResponse);
 

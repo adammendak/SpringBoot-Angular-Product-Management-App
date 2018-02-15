@@ -1,6 +1,7 @@
 package com.adammendak.productmanagement.bootstrap;
 
 import com.adammendak.productmanagement.model.Product;
+import com.adammendak.productmanagement.model.mapper.ProductMapper;
 import com.adammendak.productmanagement.repository.ProductRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
