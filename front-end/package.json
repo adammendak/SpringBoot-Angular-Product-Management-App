@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "prebuild" : "npm install",
     "build": "ng build",
     "postbuild": "npm run deploy",
     "predeploy": "rimraf ../src/main/resources/static && mkdirp ../src/main/resources/static",
