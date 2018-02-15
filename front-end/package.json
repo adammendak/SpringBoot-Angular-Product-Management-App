@@ -5,11 +5,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "prebuild" : "npm install",
+    "prebuild": "npm install",
     "build": "ng build",
     "postbuild": "npm run deploy",
-    "predeploy": "rimraf ../src/main/resources/static && mkdirp ../src/main/resources/static",
-    "deploy": "copyfiles -f dist/** ../src/main/resources/static",
+    "predeploy": "rimraf ../src/main/resources/static && mkdirp ../src/main/resources/static/assets",
+    "deploy": "copyfiles -f dist/** ../src/main/resources/static/ && copyfiles -f src/assets/** ../src/main/resources/static/assets ",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
