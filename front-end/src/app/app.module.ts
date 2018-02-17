@@ -19,6 +19,8 @@ import {HttpModule} from "@angular/http";
 import {ToastrServiceProxy} from "./shared/toastr.service";
 import {ToastrModule} from "ngx-toastr";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { ErrorComponent } from './error/error.component';
+import {ProductDetailActivator} from './products/product-detail/product-detail-activator';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     ProductDetailComponent,
     WelcomeComponent,
     NewProductComponent,
-    LoginComponent
+    LoginComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     RouterModule.forRoot(routes),
     ToastrModule.forRoot()
   ],
-  providers: [ProductService, ToastrServiceProxy],
+  providers: [ProductService, ToastrServiceProxy, ProductDetailActivator],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

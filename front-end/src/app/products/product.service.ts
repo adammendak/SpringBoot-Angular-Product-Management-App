@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {IProduct, Product} from "./product";
-import {HttpClient, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpParams, HttpResponse} from '@angular/common/http';
 import {Observable} from "rxjs/Rx";
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
@@ -9,17 +9,19 @@ import {RequestOptions, Headers, Response, Request, Http} from "@angular/http";
 @Injectable()
 export class ProductService {
 
-private url = "http://localhost:8080/api/product";
+private url = "http://localhost:8080/api/products";
 
   constructor(private _http: HttpClient, private http: Http) {
   }
 
   getProduct(id: string): Observable<IProduct> {
-    let params: HttpParams = new HttpParams();
-    params = params.append("id", id);
-    return this._http.get<IProduct>(this.url,  {params: params})
-      .do(data => console.log("product :" + JSON.stringify(data)));
-      // .catch(this.handleError())
+    let url = this.url + "/" + id;
+    console.log("in product service, fetching for id " + id);
+    return this.http.get(url)
+      .map((res: Response) => {
+        console.log("Product fron back end: " + JSON.stringify(res));
+        return <IProduct>res.json()
+      });
   }
 
 

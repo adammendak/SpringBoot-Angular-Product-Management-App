@@ -1,9 +1,20 @@
 <div class="panel panel-primary" *ngIf="product">
   <div class="panel-heading">
-    {{pageTitle + ' ' + product.name}}
-    asdasdasdasdfasdfasdf
+    {{product.name}}
+
+  </div>
+  <div class="panel-body">
+    Product id : {{product.id}} <br>
+    Product code : {{product.code}} <br>
+    Product description: {{product.description}} <br>
+    Product Image url: {{product.imageUrl}} <br>
+    Product price : {{product.price}} <br>
+    Product release date : {{product.releaseDate}} <br>
+    Product star rating : {{product.starRating}}
+
   </div>
   <div class="panel-footer">
     <button class="btn btn-primary" (click)="onBack()" style="width: 80px">Back</button>
   </div>
 </div>
+<h1 *ngIf="!product">No product to show ! </h1>

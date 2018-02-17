@@ -51,4 +51,5 @@ export class Product implements  IProduct {
   setImageUrl(imageUrl: string) :void {
     this.imageUrl = imageUrl;
   }
+
 }
