@@ -24,6 +24,7 @@ public class Bootstrap implements CommandLineRunner{
     public void run(String... strings) throws Exception {
 
         Product product1 = new Product();
+        product1.setId(1L);
         product1.setName("Hammer");
         product1.setCode("TBX-0048");
         product1.setReleaseDate("May 21, 2016");
@@ -37,6 +38,7 @@ public class Bootstrap implements CommandLineRunner{
         logger.info("adding product {} into DB", product1.getName());
 
         Product product2 = new Product();
+        product1.setId(2L);
         product2.setName("Garden Cart");
         product2.setCode("GDN-0023");
         product2.setReleaseDate("March 18, 2016");

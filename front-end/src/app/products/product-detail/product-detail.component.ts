@@ -3,6 +3,8 @@ import {IProduct} from "../product";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ProductService} from '../product.service';
 import {Observable} from 'rxjs/Observable';
+import {renderNode} from '@angular/core/src/view/util';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-product-detail',
@@ -12,20 +14,20 @@ import {Observable} from 'rxjs/Observable';
 export class ProductDetailComponent implements OnInit {
 
   pageTitle: string = "Product Detail";
-  product: IProduct;
+  product: Subscription;
 
   constructor(private _route: ActivatedRoute, private _router: Router, private _productService: ProductService) { }
 
 
   ngOnInit() {
-    // const id = this._route.snapshot.paramMap.get( 'id');
-    const id = this._route.snapshot.params['id'];
-    this._productService.getProduct(id);
+    let id = this._route.snapshot.params['id'];
+    console.log("id is " + id)
+    this.product = this._productService.getProduct(id).subscribe();
 
   }
 
-  onBack(): void {
-    this._router.navigate['/products'];
+  onBack() {
+    this._router.navigate(['/products']).catch();
   }
 
 }

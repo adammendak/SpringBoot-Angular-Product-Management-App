@@ -23,7 +23,7 @@ private url = "http://localhost:8080/api/product";
   }
 
 
-  getProducts() :Observable<IProduct[]> {
+  getProducts(): Observable<IProduct[]> {
 
     return this._http.get<IProduct[]>(this.url)
       .do(data => console.log("All: " + JSON.stringify(data)))
