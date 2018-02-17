@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {IProduct, Product} from "./product";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from "rxjs/Rx";
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
@@ -14,6 +14,15 @@ private url = "http://localhost:8080/api/product";
   constructor(private _http: HttpClient, private http: Http) {
   }
 
+  getProduct(id: string): Observable<IProduct> {
+    let params: HttpParams = new HttpParams();
+    params = params.append("id", id);
+    return this._http.get<IProduct>(this.url,  {params: params})
+      .do(data => console.log("product :" + JSON.stringify(data)));
+      // .catch(this.handleError())
+  }
+
+
   getProducts() :Observable<IProduct[]> {
 
     return this._http.get<IProduct[]>(this.url)
@@ -21,7 +30,7 @@ private url = "http://localhost:8080/api/product";
       .catch(this.handleError);
   }
 
-  postProdut(product : Product) :Observable<any>{
+  postProdut(product: Product): Observable<any>{
     let body = JSON.stringify(product);
     let headers = new Headers({
       'Content-Type' : 'application/json'
@@ -38,7 +47,7 @@ private url = "http://localhost:8080/api/product";
     return body.fields || { };
   }
 
-  private handleError(err :any) {
+  private handleError(err: any) {
     console.log(err.message);
     return Observable.throw(err.statusText);
   }

@@ -10,10 +10,10 @@ import {ToastrServiceProxy} from "../shared/toastr.service";
 })
 export class ProductsComponent implements OnInit {
 
-  pageTitle :string = "Product List";
-  showImage :boolean = false;
-  _listFilter :string;
-  errorMessage :string;
+  pageTitle: string = "Product List";
+  showImage: boolean = false;
+  _listFilter: string;
+  errorMessage: string;
 
   // get listFilter() :string {
   //   return this._listFilter;
@@ -24,19 +24,19 @@ export class ProductsComponent implements OnInit {
   // }
 
   filteredProducts: IProduct[];
-  products :IProduct[] = [];
+  products: IProduct[] = [];
 
 
-  imageWidth : number = 500;
-  imageMargin : number = 2;
+  imageWidth: number = 500;
+  imageMargin: number = 2;
 
-  constructor(private _productService :ProductService, private _toastr: ToastrServiceProxy) {
+  constructor(private _productService: ProductService, private _toastr: ToastrServiceProxy) {
     this._listFilter = 'cart';
   }
 
   ngOnInit() {
     this._productService.getProducts()
-      .subscribe(products =>{
+      .subscribe(products => {
       this.products = products,
         this.filteredProducts = this.products},
         error => this.errorMessage = <any>error);
@@ -44,12 +44,12 @@ export class ProductsComponent implements OnInit {
     this._toastr.info("fetching all products");
   }
 
-  toggleImg() : void {
+  toggleImg(): void {
     this.showImage = !this.showImage;
   }
 
-  onRatingClicked(message :string) :void {
-    this.pageTitle= "Product List: " + message;
+  onRatingClicked(message: string): void {
+    this.pageTitle = "Product List: " + message;
   }
 
   // performFiler(filterBy :string) : IProduct[] {
