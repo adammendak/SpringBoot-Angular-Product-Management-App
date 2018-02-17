@@ -14,5 +14,5 @@ export const routes = [
   {path: 'login', component: LoginComponent},
   {path: 'error', component: ErrorComponent},
   {path: '', redirectTo: 'welcome', pathMatch: 'full'},
-  {path: '**', redirectTo: 'welcome', pathMatch: 'full'},
+  {path: '**', redirectTo: 'error', }
 ];

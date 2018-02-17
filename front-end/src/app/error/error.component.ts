@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-error',
@@ -9,9 +10,11 @@ export class ErrorComponent implements OnInit {
 
   private errorMessage: string;
 
-  constructor() { }
+  constructor(private _toastr: ToastrService) { }
 
   ngOnInit() {
+    this._toastr.error("Error ! ");
+
   }
 
 }
