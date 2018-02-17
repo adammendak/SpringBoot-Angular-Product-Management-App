@@ -3,3 +3,8 @@
   font-size: 170px;
   text-align: center;
 }
+.errorDetailMessage {
+  margin-top: 20px;
+  font-size: 100px;
+  text-align: center;
+}
