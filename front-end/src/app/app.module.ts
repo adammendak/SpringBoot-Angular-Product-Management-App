@@ -1,27 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
+import { RouterModule } from "@angular/router";
+import { routes } from "./routes";
+import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
-import { ProductsComponent } from './products/products.component';
-import {FormsModule} from "@angular/forms";
-import { ConvertToSpacesPipe } from './products/convert-to-spaces.pipe';
-import { StarComponent } from './products/star/star.component';
-import {ProductService} from "./products/product.service";
-import {HttpClientModule} from "@angular/common/http";
-import { ProductDetailComponent } from './products/product-detail/product-detail.component';
-import { WelcomeComponent } from './welcome/welcome.component';
-import {RouterModule} from "@angular/router";
-import { NewProductComponent } from './products/new-product/new-product.component';
-import {routes} from "./routes";
-import {HttpModule} from "@angular/http";
-import {ToastrServiceProxy} from "./shared/toastr.service";
-import {ToastrModule} from "ngx-toastr";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { ErrorComponent } from './error/error.component';
-import {ProductDetailActivator} from './products/product-detail/product-detail-activator';
-import {ProductListResolverService} from './products/product-list-resolver.service';
-import {UserModule} from './user/user.module';
+import { FormsModule } from "@angular/forms";
+import { HttpModule } from "@angular/http";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+
+import {
+  NewProductComponent,
+  ProductsComponent,
+  ProductDetailActivator,
+  ProductListResolverService,
+  ProductDetailComponent,
+  ProductService,
+  ConvertToSpacesPipe,
+  StarComponent
+} from './products/index'
+
+import { UserModule } from './user/user.module';
+
+import { WelcomeComponent } from './welcome/index';
+
+import { ToastrServiceProxy } from "./shared/index";
+import { ToastrModule } from "ngx-toastr";
+import { ErrorComponent } from './error/index';
+
 
 @NgModule({
   declarations: [
