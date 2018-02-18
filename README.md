@@ -3,7 +3,7 @@
 Project for managing products
 ----------
 
-things needed for this to run: -maven -jdk -npm
+things needed for this to run:-jdk -node
 
 to create view layer, cd into /front-end and 
 ```
