@@ -1,10 +1,10 @@
 <nav>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="nav navbar-nav">
-      <li><a [routerLink]="['/welcome']">Home</a></li>
-      <li><a [routerLink]="['/products']">Product List</a></li>
-      <li><a [routerLink]="['/products/new']">New Product</a></li>
-      <li><a [routerLink]="['/login']">Login</a></li>
+      <li><a [routerLink]="['/welcome']" routerLinkActive="active">Home</a></li>
+      <li><a [routerLink]="['/products']" routerLinkActive="active" [routerLinkActiveOptions]="{exact : true}">Product List</a></li>
+      <li><a [routerLink]="['/products/new']" routerLinkActive="active" [routerLinkActiveOptions]="{exact : true}">New Product</a></li>
+      <li><a [routerLink]="['/user/login']" routerLinkActive="active">Login</a></li>
     </ul>
   </div>
 </nav>

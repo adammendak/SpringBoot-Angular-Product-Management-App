@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {ToastrService} from "ngx-toastr";
 
-declare let toastr:any;
+declare let toastr: any;
 
 @Injectable()
 export class ToastrServiceProxy {

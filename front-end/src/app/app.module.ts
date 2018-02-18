@@ -13,7 +13,6 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
 import { WelcomeComponent } from './welcome/welcome.component';
 import {RouterModule} from "@angular/router";
 import { NewProductComponent } from './products/new-product/new-product.component';
-import { LoginComponent } from './login/login.component';
 import {routes} from "./routes";
 import {HttpModule} from "@angular/http";
 import {ToastrServiceProxy} from "./shared/toastr.service";
@@ -22,6 +21,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { ErrorComponent } from './error/error.component';
 import {ProductDetailActivator} from './products/product-detail/product-detail-activator';
 import {ProductListResolverService} from './products/product-list-resolver.service';
+import {UserModule} from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,6 @@ import {ProductListResolverService} from './products/product-list-resolver.servi
     ProductDetailComponent,
     WelcomeComponent,
     NewProductComponent,
-    LoginComponent,
     ErrorComponent
   ],
   imports: [
@@ -42,7 +41,8 @@ import {ProductListResolverService} from './products/product-list-resolver.servi
     HttpClientModule,
     HttpModule,
     RouterModule.forRoot(routes),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    UserModule
   ],
   providers: [ProductService, ToastrServiceProxy, ProductDetailActivator, ProductListResolverService],
   bootstrap: [AppComponent]
