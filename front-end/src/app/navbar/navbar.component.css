@@ -1,0 +1,11 @@
+nav {
+  margin-bottom: 10px;
+}
+
+nav p {
+  margin-right: 20px;
+}
+
+li > .active {
+  color: darkorange;
+}

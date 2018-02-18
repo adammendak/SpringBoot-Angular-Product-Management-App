@@ -20,35 +20,35 @@ export class Product implements  IProduct {
   starRating: number;
   imageUrl: string;
 
-  calculateDiscount(percentage: number) : number {
-    return this.price - (this.price * percentage/100);
+  calculateDiscount(percentage: number): number {
+    return this.price - (this.price * percentage / 100);
   }
 
-  setName(name: string) :void {
+  setName(name: string): void {
     this.name = name;
   }
 
-  setCode(code: string) : void {
+  setCode(code: string): void {
     this.code = code;
   }
 
-  setReleaseDate(date: string ) :void {
+  setReleaseDate(date: string ): void {
     this.releaseDate = date;
   }
 
-  setDescription(description: string) :void {
+  setDescription(description: string): void {
     this.description = description;
   }
 
-  setPrice(price :number) :void {
+  setPrice(price: number): void {
     this.price = price;
   }
 
-  setStarRating(rating: number) :void {
+  setStarRating(rating: number): void {
     this.starRating = rating;
   }
 
-  setImageUrl(imageUrl: string) :void {
+  setImageUrl(imageUrl: string): void {
     this.imageUrl = imageUrl;
   }
 

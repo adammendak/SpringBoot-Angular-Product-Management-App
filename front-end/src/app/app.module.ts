@@ -26,6 +26,8 @@ import { WelcomeComponent } from './welcome/index';
 import { ToastrServiceProxy } from "./shared/index";
 import { ToastrModule } from "ngx-toastr";
 import { ErrorComponent } from './error/index';
+import { UserAuthService } from './user/user-auth.service';
+import { NavbarComponent } from './navbar/index';
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import { ErrorComponent } from './error/index';
     ProductDetailComponent,
     WelcomeComponent,
     NewProductComponent,
-    ErrorComponent
+    ErrorComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,11 @@ import { ErrorComponent } from './error/index';
     ToastrModule.forRoot(),
     UserModule
   ],
-  providers: [ProductService, ToastrServiceProxy, ProductDetailActivator, ProductListResolverService],
+  providers: [ProductService,
+    ToastrServiceProxy,
+    ProductDetailActivator,
+    ProductListResolverService,
+    UserAuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

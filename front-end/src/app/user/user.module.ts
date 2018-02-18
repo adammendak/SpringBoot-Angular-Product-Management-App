@@ -5,10 +5,12 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/index';
 
 import { userRoutes } from './userRoutes';
-
+import {FormsModule} from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    RouterModule,
     RouterModule.forChild(userRoutes)
   ],
   exports: [
@@ -16,6 +18,7 @@ import { userRoutes } from './userRoutes';
   declarations: [
     LoginComponent
   ],
-  providers: []
+  providers: [
+  ]
 })
 export class UserModule { }

@@ -11,20 +11,11 @@ import { ToastrServiceProxy} from "../../shared/toastr.service";
 })
 export class NewProductComponent implements OnInit {
 
-  constructor(private _productService :ProductService, private _toastr: ToastrServiceProxy) { }
+  constructor(private _productService: ProductService, private _toastr: ToastrServiceProxy) { }
 
   product = new Product();
 
-
-
   ngOnInit() {
-    // this.product.setName("test name bla bla ");
-    // this.product.setCode("1234");
-    // this.product.setReleaseDate("assssd");
-    // this.product.setDescription("testDescription");
-    // this.product.setPrice(123);
-    // this.product.setStarRating(1);
-    // this.product.setImageUrl("test url");
   }
 
   postProdut(form: NgForm) {
