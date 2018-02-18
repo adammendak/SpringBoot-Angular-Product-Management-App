@@ -1,4 +1,4 @@
-import {LoginComponent} from './login/login.component';
+import {LoginComponent} from './login/index';
 
 
 export const userRoutes = [

@@ -1,8 +1,10 @@
 package com.adammendak.productmanagement.bootstrap;
 
 import com.adammendak.productmanagement.model.Product;
+import com.adammendak.productmanagement.model.User;
 import com.adammendak.productmanagement.model.mapper.ProductMapper;
 import com.adammendak.productmanagement.repository.ProductRepository;
+import com.adammendak.productmanagement.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -15,9 +17,11 @@ public class Bootstrap implements CommandLineRunner{
 
     private final Logger logger = LoggerFactory.getLogger(Bootstrap.class);
     private final ProductRepository productRepository;
+    private final UserRepository userRepository;
 
-    public Bootstrap(ProductRepository productRepository) {
+    public Bootstrap(ProductRepository productRepository, UserRepository userRepository) {
         this.productRepository = productRepository;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -49,7 +53,14 @@ public class Bootstrap implements CommandLineRunner{
 
         productRepository.save(product2);
 
-        logger.info("adding product {} into DB", product2.getName());
+        logger.info("adding product {} into DB", puroduct2.getName());
+
+        User testUser = new User();
+        testUser.setId(1L);
+        testUser.setEmail("test@test.pl");
+        testUser.setUserName("testowy");
+        testUser.setPassword("test123");
+
 
     }
 }
