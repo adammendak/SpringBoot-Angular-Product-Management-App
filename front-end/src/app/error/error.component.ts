@@ -8,7 +8,7 @@ import {ToastrService} from 'ngx-toastr';
 })
 export class ErrorComponent implements OnInit {
 
-  private errorMessage: string;
+  errorMessage: string;
 
   constructor(private _toastr: ToastrService) { }
 
