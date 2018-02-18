@@ -2,7 +2,6 @@ package com.adammendak.productmanagement.bootstrap;
 
 import com.adammendak.productmanagement.model.Product;
 import com.adammendak.productmanagement.model.User;
-import com.adammendak.productmanagement.model.mapper.ProductMapper;
 import com.adammendak.productmanagement.repository.ProductRepository;
 import com.adammendak.productmanagement.repository.UserRepository;
 import org.slf4j.Logger;
@@ -53,13 +52,16 @@ public class Bootstrap implements CommandLineRunner{
 
         productRepository.save(product2);
 
-        logger.info("adding product {} into DB", puroduct2.getName());
+        logger.info("adding product {} into DB", product2.getName());
 
         User testUser = new User();
         testUser.setId(1L);
         testUser.setEmail("test@test.pl");
         testUser.setUserName("testowy");
         testUser.setPassword("test123");
+
+        userRepository.save(testUser);
+        logger.info("added testUser");
 
 
     }
