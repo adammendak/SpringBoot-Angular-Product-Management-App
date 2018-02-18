@@ -21,6 +21,7 @@ import {ToastrModule} from "ngx-toastr";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { ErrorComponent } from './error/error.component';
 import {ProductDetailActivator} from './products/product-detail/product-detail-activator';
+import {ProductListResolverService} from './products/product-list-resolver.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import {ProductDetailActivator} from './products/product-detail/product-detail-a
     RouterModule.forRoot(routes),
     ToastrModule.forRoot()
   ],
-  providers: [ProductService, ToastrServiceProxy, ProductDetailActivator],
+  providers: [ProductService, ToastrServiceProxy, ProductDetailActivator, ProductListResolverService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
