@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/user")
 @Slf4j
@@ -33,5 +35,13 @@ public class UserController {
             log.info(e.getMessage());
             throw e;
         }
+    }
+
+    @GetMapping
+    public ResponseEntity getAllUsers() {
+
+        List<User> usersFromDB = userService.findAllUsers();
+
+        return ResponseEntity.status(HttpStatus.OK).body(usersFromDB);
     }
 }

@@ -7,10 +7,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserServiceImpl {
+public class UserServiceImpl implements UserService{
 
     private final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
     private UserRepository userRepository;
@@ -26,5 +27,12 @@ public class UserServiceImpl {
         } else {
             throw new ResourceNotFoundException("User with id " + id + " does not exist");
         }
+    }
+
+    public List<User> findAllUsers() {
+
+        logger.info("getting all users");
+
+        return userRepository.findAll();
     }
 }
