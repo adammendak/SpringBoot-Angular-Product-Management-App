@@ -13,17 +13,25 @@ import java.util.Optional;
 public class ProductServiceImpl implements ProductService {
 
     Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);
+
     private ProductRepository productRepository;
 
     public ProductServiceImpl(ProductRepository productRepository) {
+
         this.productRepository = productRepository;
+
     }
 
     public List<Product> findAll() {
+
+
+        logger.info("getting all the products");
         return productRepository.findAll();
     }
 
     public Optional<Product> findOneById(Long id) {
+
+        logger.info("getting single product with id {}", id);
         return productRepository.findById(id);
     }
 }
