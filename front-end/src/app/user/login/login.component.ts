@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  private user: IUser = new User;
+  user: IUser = new User;
 
   constructor(private _userAuth: UserAuthService, private _router: Router) { }
 
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     console.log(this.user.password);
   }
 
-  cancel($event): void {
+  cancel(): void {
     this._router.navigate(['/welcome']).catch();
   }
 
