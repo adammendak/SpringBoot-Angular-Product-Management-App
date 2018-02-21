@@ -19,7 +19,6 @@ import {
 } from './products/index'
 import { UserModule } from './user/user.module';
 import { WelcomeComponent } from './welcome/index';
-// import { ToastrServiceProxy } from "./shared/index";
 import { ToastrModule } from "ngx-toastr";
 import { ErrorComponent } from './error/index';
 import { UserAuthService } from './user/user-auth.service';
