@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {ProductService} from "../product.service";
 import {Product} from "../product";
 import {NgForm} from "@angular/forms";
-import { ToastrServiceProxy} from "../../shared/toastr.service";
+import {Toastr, TOASTR_TOKEN} from "../../shared";
 
 @Component({
   selector: 'app-new-product',
@@ -11,7 +11,7 @@ import { ToastrServiceProxy} from "../../shared/toastr.service";
 })
 export class NewProductComponent implements OnInit {
 
-  constructor(private _productService: ProductService, private _toastr: ToastrServiceProxy) { }
+  constructor(private _productService: ProductService,  @Inject(TOASTR_TOKEN) private _toastr: Toastr) { }
 
   product = new Product();
 

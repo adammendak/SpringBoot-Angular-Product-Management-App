@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import {IProduct} from "./product";
 import {ProductService} from "./product.service";
-import {ToastrServiceProxy} from "../shared/toastr.service";
 import {ActivatedRoute} from '@angular/router';
+import {TOASTR_TOKEN, Toastr} from "../shared";
 
 @Component({
   selector: 'app-products',
@@ -31,7 +31,8 @@ export class ProductsComponent implements OnInit {
   imageWidth: number = 500;
   imageMargin: number = 2;
 
-  constructor(private _productService: ProductService, private _toastr: ToastrServiceProxy,
+  constructor(private _productService: ProductService,
+              @Inject(TOASTR_TOKEN) private _toastr: Toastr,
               private _route: ActivatedRoute) {
     this._listFilter = 'cart';
   }

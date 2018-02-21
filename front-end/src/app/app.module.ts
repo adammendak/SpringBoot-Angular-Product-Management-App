@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-
 import {
   NewProductComponent,
   ProductsComponent,
@@ -18,17 +17,16 @@ import {
   ConvertToSpacesPipe,
   StarComponent
 } from './products/index'
-
 import { UserModule } from './user/user.module';
-
 import { WelcomeComponent } from './welcome/index';
-
-import { ToastrServiceProxy } from "./shared/index";
+// import { ToastrServiceProxy } from "./shared/index";
 import { ToastrModule } from "ngx-toastr";
 import { ErrorComponent } from './error/index';
 import { UserAuthService } from './user/user-auth.service';
 import { NavbarComponent } from './navbar/index';
+import { TOASTR_TOKEN } from "./shared";
 
+declare let toastr: any;
 
 @NgModule({
   declarations: [
@@ -53,7 +51,7 @@ import { NavbarComponent } from './navbar/index';
     UserModule
   ],
   providers: [ProductService,
-    ToastrServiceProxy,
+    {provide: TOASTR_TOKEN, useValue: toastr },
     ProductDetailActivator,
     ProductListResolverService,
     UserAuthService],
