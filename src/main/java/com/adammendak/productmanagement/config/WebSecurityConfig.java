@@ -10,6 +10,24 @@ package com.adammendak.productmanagement.config;
 //@EnableWebSecurity
 public class WebSecurityConfig /*extends WebSecurityConfigurerAdapter */ {
 //
+//          @Autowired
+//          private CustomAuthenticationProvider authProvider;
+//
+//    @Override
+//    protected void configure(
+//            AuthenticationManagerBuilder auth) throws Exception {
+//
+//        auth.authenticationProvider(authProvider);
+//    }
+    //TO JEST Z BAELDUNGA
+//@Override
+//protected void configure(HttpSecurity http) throws Exception {
+//    http.authorizeRequests().anyRequest().authenticated()
+//            .and()
+//            .httpBasic();
+//}
+
+//
 //    @Override
 //    protected void configure(HttpSecurity http) throws Exception {
 //        super.configure(http);
