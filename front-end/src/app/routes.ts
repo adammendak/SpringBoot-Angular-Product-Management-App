@@ -14,5 +14,5 @@ export const routes = [
   {path: 'error', component: ErrorComponent},
   {path: '', redirectTo: 'welcome', pathMatch: 'full'},
   {path: 'user', loadChildren: 'app/user/user.module#UserModule'},
-  {path: '**', redirectTo: 'error', }
+  {path: '**', redirectTo: 'error'}
 ];

@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/index';
 
 import { userRoutes } from './userRoutes';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule,
