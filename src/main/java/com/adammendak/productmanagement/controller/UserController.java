@@ -2,6 +2,7 @@ package com.adammendak.productmanagement.controller;
 
 import com.adammendak.productmanagement.exception.ResourceNotFoundException;
 import com.adammendak.productmanagement.model.User;
+import com.adammendak.productmanagement.service.UserService;
 import com.adammendak.productmanagement.service.UserServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -19,9 +20,9 @@ import java.util.List;
 @CorsFilterDev
 public class UserController {
 
-    private UserServiceImpl userService;
+    private UserService userService;
 
-    public UserController(UserServiceImpl userService) {
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 

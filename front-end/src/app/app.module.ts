@@ -20,6 +20,7 @@ import {
 import { UserModule } from './user/user.module';
 import { WelcomeComponent } from './welcome/index';
 import { ToastrModule } from "ngx-toastr";
+export const ToastrModule;
 import { ErrorComponent } from './error/index';
 import { UserAuthService } from './user/user-auth.service';
 import { NavbarComponent } from './navbar/index';

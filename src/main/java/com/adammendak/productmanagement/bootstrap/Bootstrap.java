@@ -7,11 +7,13 @@ import com.adammendak.productmanagement.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
 @Component
+@Profile(value = "dev")
 public class Bootstrap implements CommandLineRunner{
 
     private final Logger logger = LoggerFactory.getLogger(Bootstrap.class);

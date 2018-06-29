@@ -3,6 +3,7 @@ package com.adammendak.productmanagement.controller;
 import com.adammendak.productmanagement.model.Product;
 import com.adammendak.productmanagement.model.dto.ProductDto;
 import com.adammendak.productmanagement.repository.ProductRepository;
+import com.adammendak.productmanagement.service.ProductService;
 import com.adammendak.productmanagement.service.ProductServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,24 +16,24 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/products")
+@RequestMapping(path = "/api/products")
 @CorsFilterDev
 public class ProductController {
 
     private final Logger logger = LoggerFactory.getLogger(ProductController.class);
     private ProductRepository productRepository;
-    private ProductServiceImpl productServiceImpl;
+    private ProductService productService;
 
-    public ProductController(ProductRepository productRepository, ProductServiceImpl productServiceImpl) {
+    public ProductController(ProductRepository productRepository, ProductService productService) {
         this.productRepository = productRepository;
-        this.productServiceImpl = productServiceImpl;
+        this.productService = productService;
     }
 
 //    private HttpHeaders httpHeaders = new HttpHeaders();
 
     @GetMapping
     public ResponseEntity getAllTheProducts(){
-        List<Product> listOfAllProducts = productServiceImpl.findAll();
+        List<Product> listOfAllProducts = productService.findAll();
 
         if(listOfAllProducts.size() != 0) {
             logger.info("returning all products, size of array {}", listOfAllProducts.size());
@@ -46,7 +47,7 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public ResponseEntity getProduct(@PathVariable Long id) {
-        Optional<Product> product = productServiceImpl.findOneById(id);
+        Optional<Product> product = productService.findOneById(id);
 
         if(product.isPresent()) {
             return ResponseEntity.status(HttpStatus.OK).body(product.get());
