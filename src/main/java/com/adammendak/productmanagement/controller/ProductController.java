@@ -4,10 +4,12 @@ import com.adammendak.productmanagement.model.Product;
 import com.adammendak.productmanagement.model.dto.ProductDto;
 import com.adammendak.productmanagement.repository.ProductRepository;
 import com.adammendak.productmanagement.service.ProductService;
-import com.adammendak.productmanagement.service.ProductServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.hateoas.Resource;
+import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,15 +31,11 @@ public class ProductController {
         this.productService = productService;
     }
 
-//    private HttpHeaders httpHeaders = new HttpHeaders();
-
     @GetMapping
     public ResponseEntity getAllTheProducts(){
         List<Product> listOfAllProducts = productService.findAll();
-
         if(listOfAllProducts.size() != 0) {
             logger.info("returning all products, size of array {}", listOfAllProducts.size());
-
             return ResponseEntity.status(HttpStatus.OK).body(listOfAllProducts);
         } else {
             logger.info("no products in DB");
@@ -45,12 +43,19 @@ public class ProductController {
         }
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(
+            value = "/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
     public ResponseEntity getProduct(@PathVariable Long id) {
         Optional<Product> product = productService.findOneById(id);
 
         if(product.isPresent()) {
-            return ResponseEntity.status(HttpStatus.OK).body(product.get());
+            Resource<Product> productResource = new Resource<>(product.get());
+            ControllerLinkBuilder linkTo = ControllerLinkBuilder
+                    .linkTo(ControllerLinkBuilder.methodOn(this.getClass()).getAllTheProducts());
+            productResource.add(linkTo.withRel("all-products"));
+            return ResponseEntity.status(HttpStatus.OK).body(productResource);
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("no product with given id");
         }
@@ -77,7 +82,6 @@ public class ProductController {
 
     @PostMapping
     public ResponseEntity createNewProduct(@Valid @RequestBody Product product) {
-
         logger.info("saving product {}", product.getName());
         try {
             Product savedProduct = productRepository.save(product);

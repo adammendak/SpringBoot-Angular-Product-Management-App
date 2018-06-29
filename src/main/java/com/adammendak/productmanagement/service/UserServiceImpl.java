@@ -30,9 +30,7 @@ public class UserServiceImpl implements UserService{
     }
 
     public List<User> findAllUsers() {
-
         logger.info("getting all users");
-
         return userRepository.findAll();
     }
 }
