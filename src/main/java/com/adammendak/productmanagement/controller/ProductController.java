@@ -51,11 +51,13 @@ public class ProductController {
         Optional<Product> product = productService.findOneById(id);
 
         if(product.isPresent()) {
-            Resource<Product> productResource = new Resource<>(product.get());
-            ControllerLinkBuilder linkTo = ControllerLinkBuilder
-                    .linkTo(ControllerLinkBuilder.methodOn(this.getClass()).getAllTheProducts());
-            productResource.add(linkTo.withRel("all-products"));
-            return ResponseEntity.status(HttpStatus.OK).body(productResource);
+//            uncomment spring-boot-hateoas
+//            Resource<Product> productResource = new Resource<>(product.get());
+//            ControllerLinkBuilder linkTo = ControllerLinkBuilder
+//                    .linkTo(ControllerLinkBuilder.methodOn(this.getClass()).getAllTheProducts());
+//            productResource.add(linkTo.withRel("all-products"));
+//            return ResponseEntity.status(HttpStatus.OK).body(productResource);
+            return ResponseEntity.status(HttpStatus.OK).body(product.get());
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("no product with given id");
         }
