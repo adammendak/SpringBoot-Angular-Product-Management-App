@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import {IProduct} from "./product";
 import {ProductService} from "./product.service";
 import {ActivatedRoute} from '@angular/router';
-import {TOASTR_TOKEN, Toastr} from "../shared";
+// import {TOASTR_TOKEN, Toastr} from "../shared";
 
 @Component({
   selector: 'app-products',
@@ -32,7 +32,7 @@ export class ProductsComponent implements OnInit {
   imageMargin: number = 2;
 
   constructor(private _productService: ProductService,
-              @Inject(TOASTR_TOKEN) private _toastr: Toastr,
+              // @Inject(TOASTR_TOKEN) private _toastr: Toastr,
               private _route: ActivatedRoute) {
     this._listFilter = 'cart';
   }
@@ -48,7 +48,7 @@ export class ProductsComponent implements OnInit {
     this.products = this._route.snapshot.data['products'];
     this.filteredProducts = this._route.snapshot.data['products'];
 
-    this._toastr.info("fetching all products");
+    // this._toastr.info("fetching all products");
   }
 
   toggleImg(): void {

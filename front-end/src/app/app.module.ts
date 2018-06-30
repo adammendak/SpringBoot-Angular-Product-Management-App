@@ -19,12 +19,12 @@ import {
 } from './products/index'
 import { UserModule } from './user/user.module';
 import { WelcomeComponent } from './welcome/index';
-import { ToastrModule } from "ngx-toastr";
-export const ToastrModule;
+// import { ToastrModule } from "ngx-toastr";
+// export const ToastrModule;
 import { ErrorComponent } from './error/index';
 import { UserAuthService } from './user/user-auth.service';
 import { NavbarComponent } from './navbar/index';
-import { TOASTR_TOKEN } from "./shared";
+// import { TOASTR_TOKEN } from "./shared";
 
 declare let toastr: any;
 
@@ -47,11 +47,11 @@ declare let toastr: any;
     HttpClientModule,
     HttpModule,
     RouterModule.forRoot(routes),
-    ToastrModule.forRoot(),
+    // ToastrModule.forRoot(),
     UserModule
   ],
   providers: [ProductService,
-    {provide: TOASTR_TOKEN, useValue: toastr },
+    // {provide: TOASTR_TOKEN, useValue: toastr },
     ProductDetailActivator,
     ProductListResolverService,
     UserAuthService],
