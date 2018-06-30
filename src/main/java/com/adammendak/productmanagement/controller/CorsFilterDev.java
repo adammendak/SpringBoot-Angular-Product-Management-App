@@ -11,6 +11,6 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Profile(value = "dev")
-@CrossOrigin(value = "http://localhost:4200")
+@CrossOrigin(value = "https://productmanagement-adammendak.herokuapp.com")
 public @interface CorsFilterDev {
 }
