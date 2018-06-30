@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/api/products")
+@RequestMapping(path = "/api/product")
 @CorsFilterDev
 public class ProductController {
 
