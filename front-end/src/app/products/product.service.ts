@@ -9,7 +9,7 @@ import {RequestOptions, Headers, Response, Request, Http} from "@angular/http";
 @Injectable()
 export class ProductService {
 
-private url = "http://localhost:8080/api/products";
+private url = "https://productmanagement-adammendak.herokuapp.com/api/product";
 
   constructor(private _http: HttpClient, private http:Http) {
   }
