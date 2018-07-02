@@ -10,6 +10,7 @@ import {RequestOptions, Headers, Response, Request, Http} from "@angular/http";
 export class ProductService {
 
 private url = "https://productmanagement-adammendak.herokuapp.com/api/product";
+// private url = "http://localhost:8080/api/product";
 
   constructor(private _http: HttpClient, private http:Http) {
   }

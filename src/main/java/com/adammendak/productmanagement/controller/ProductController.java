@@ -1,6 +1,5 @@
 package com.adammendak.productmanagement.controller;
 
-import com.adammendak.productmanagement.controller.interfaces.CorsFilters;
 import com.adammendak.productmanagement.model.Product;
 import com.adammendak.productmanagement.model.dto.ProductDto;
 import com.adammendak.productmanagement.repository.ProductRepository;
@@ -92,16 +91,4 @@ public class ProductController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
-
-//    @Profile(value = "dev")
-//    @CrossOrigin(value = "http://localhost:4200")
-//    private HttpHeaders addHeaders(HttpHeaders httpHeaders) {
-//
-//        //for accesing requests from angular ng serve localhost:4200
-//        //could be done by @CrossOrigin
-//        httpHeaders.add("Access-Control-Allow-Origin", "http://localhost:4200");
-//        httpHeaders.add("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-//        httpHeaders.add("Access-Control-Allow-Headers", "Origin, Content-Type, Access-Control-Allow-Origin");
-//        return httpHeaders;
-//    }
 }

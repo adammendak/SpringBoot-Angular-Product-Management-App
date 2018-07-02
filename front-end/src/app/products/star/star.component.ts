@@ -7,9 +7,9 @@ import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angula
 })
 export class StarComponent implements OnInit, OnChanges {
 
-  @Input() rating :number;
-  starWidth :number;
-  @Output() ratingClicked :EventEmitter<string> =
+  @Input() rating: number;
+  starWidth: number;
+  @Output() ratingClicked: EventEmitter<string> =
     new EventEmitter<string>();
 
   constructor() { }
@@ -17,11 +17,11 @@ export class StarComponent implements OnInit, OnChanges {
   ngOnInit() {
   }
 
-  ngOnChanges() :void {
-    this.starWidth = this.rating * 86/5;
+  ngOnChanges(): void {
+    this.starWidth = this.rating * 86 / 5;
   }
 
-  onClick() :void {
+  onClick(): void {
     this.ratingClicked.emit(`the rating ${this.rating} was clicked!`);
   }
 

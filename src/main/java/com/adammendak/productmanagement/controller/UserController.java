@@ -1,6 +1,5 @@
 package com.adammendak.productmanagement.controller;
 
-import com.adammendak.productmanagement.controller.interfaces.CorsFilters;
 import com.adammendak.productmanagement.exception.ResourceNotFoundException;
 import com.adammendak.productmanagement.model.User;
 import com.adammendak.productmanagement.service.UserService;
