@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Entity
 @Table(name = "product")
-public class Product {
+public class Product extends AbstractTimestampableEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
