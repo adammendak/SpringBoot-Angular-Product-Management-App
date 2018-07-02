@@ -1,11 +1,13 @@
 package com.adammendak.productmanagement.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -24,5 +26,9 @@ public class ProductDto {
     private Double starRating;
     @JsonProperty(value = "image_url")
     private String imageUrl;
+    @JsonProperty(value = "created_ad")
+    private Date createdAt;
+    @JsonProperty(value = "updated_at")
+    private Date updatedAt;
 
 }
