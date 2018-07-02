@@ -6,8 +6,8 @@
       <li><a [routerLink]="['/products/new']" routerLinkActive="active" [routerLinkActiveOptions]="{exact : true}">New Product</a></li>
       <li><a [routerLink]="['/user/login']" routerLinkActive="active" *ngIf="!this._auth.isAuthenticated">Login</a></li>
     </ul>
-    <ul class="nav navbar-right">
-      <li *ngIf="this._auth.isAuthenticated" (click)="logout()"><a>Logout</a></li>
+    <ul class="nav navbar-nav navbar-right">
+      <li id="navLogoutButton"><a [routerLink]="['/']" routerLinkActive="active" class="navbar-right" *ngIf="this._auth.isAuthenticated" (click)="logout()">Logout</a></li>
     </ul>
     <p class="navbar-text navbar-right" *ngIf="this._auth.isAuthenticated">Signed in as <a [routerLink]="['/welcome']" class="navbar-link">{{_auth.currentUser.userName}}</a></p>
   </div>

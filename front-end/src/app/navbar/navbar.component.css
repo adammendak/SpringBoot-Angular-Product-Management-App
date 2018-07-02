@@ -9,3 +9,7 @@ nav p {
 li > .active {
   color: darkorange;
 }
+
+#navLogoutButton {
+  margin-right: 20px;
+}
