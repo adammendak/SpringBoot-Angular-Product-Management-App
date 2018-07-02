@@ -18,6 +18,7 @@ import java.util.List;
 @RequestMapping("/api/user")
 @Slf4j
 @CorsFilterDev
+@HerokuCrossOrigin
 public class UserController {
 
     private UserService userService;

@@ -18,6 +18,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping(path = "/api/product")
 @CorsFilterDev
+@HerokuCrossOrigin
 public class ProductController {
 
     private final Logger logger = LoggerFactory.getLogger(ProductController.class);
