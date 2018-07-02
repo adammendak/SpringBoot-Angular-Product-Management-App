@@ -1,5 +1,6 @@
 package com.adammendak.productmanagement.controller;
 
+import com.adammendak.productmanagement.controller.interfaces.CorsFilters;
 import com.adammendak.productmanagement.model.Product;
 import com.adammendak.productmanagement.model.dto.ProductDto;
 import com.adammendak.productmanagement.repository.ProductRepository;
@@ -17,8 +18,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api/product")
-@CorsFilterDev
-@HerokuCrossOrigin
+@CorsFilters
 public class ProductController {
 
     private final Logger logger = LoggerFactory.getLogger(ProductController.class);

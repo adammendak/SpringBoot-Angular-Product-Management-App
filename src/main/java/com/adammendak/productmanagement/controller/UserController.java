@@ -1,9 +1,9 @@
 package com.adammendak.productmanagement.controller;
 
+import com.adammendak.productmanagement.controller.interfaces.CorsFilters;
 import com.adammendak.productmanagement.exception.ResourceNotFoundException;
 import com.adammendak.productmanagement.model.User;
 import com.adammendak.productmanagement.service.UserService;
-import com.adammendak.productmanagement.service.UserServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +17,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/user")
 @Slf4j
-@CorsFilterDev
-@HerokuCrossOrigin
+@CorsFilters
 public class UserController {
 
     private UserService userService;
