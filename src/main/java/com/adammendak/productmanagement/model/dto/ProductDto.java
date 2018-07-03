@@ -30,5 +30,7 @@ public class ProductDto {
     private Date createdAt;
     @JsonProperty(value = "updated_at")
     private Date updatedAt;
+    @JsonProperty(value = "uri")
+    private String uri;
 
 }

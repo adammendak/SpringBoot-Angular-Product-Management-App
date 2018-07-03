@@ -2,6 +2,7 @@ package com.adammendak.productmanagement.controller;
 
 import com.adammendak.productmanagement.model.Product;
 import com.adammendak.productmanagement.model.dto.ProductDto;
+import com.adammendak.productmanagement.model.mapper.ProductMapper;
 import com.adammendak.productmanagement.repository.ProductRepository;
 import com.adammendak.productmanagement.service.ProductService;
 import org.slf4j.Logger;
@@ -10,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -55,6 +57,12 @@ public class ProductController {
 //                    .linkTo(ControllerLinkBuilder.methodOn(this.getClass()).getAllTheProducts());
 //            productResource.add(linkTo.withRel("all-products"));
 //            return ResponseEntity.status(HttpStatus.OK).body(productResource);
+            //todo dodac uri do zwracanych dto
+            String location = ServletUriComponentsBuilder.fromCurrentRequest().toUriString();
+            logger.info("Uri location {}", location);
+            ProductDto productDto = ProductMapper.INSTANCE.productToProductDto(product.get());
+            productDto.setUri(location);
+            logger.info(" product DTO {}", productDto);
             return ResponseEntity.status(HttpStatus.OK).body(product.get());
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("no product with given id");
