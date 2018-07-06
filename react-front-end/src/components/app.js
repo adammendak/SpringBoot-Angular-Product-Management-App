@@ -14,6 +14,8 @@ class App extends Component {
     return (
             <BrowserRouter>
                 <div>
+                    <div className ="btn btn-succes">test bootstrap</div>
+                    <button className={"btn btn-success"}>test button</button>
                     <Navigation/>
                     <Container>
                       <Jumbotron>
