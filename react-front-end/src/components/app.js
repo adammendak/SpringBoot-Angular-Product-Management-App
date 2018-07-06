@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Button, Container, Jumbotron} from 'reactstrap';
 import {
     BrowserRouter,
     Route,
@@ -7,6 +6,7 @@ import {
 } from 'react-router-dom';
 import '../App.css';
 import Navigation from "./navigation.js";
+import Welcome from "./welcome/welcome";
 
 
 class App extends Component {
@@ -18,7 +18,7 @@ class App extends Component {
                 <div className={"container"}>
                     <div className={"jumbotron"}>
                       <Switch>
-                          {/*<Route exact path='/' component={HomePage} />*/}
+                          <Route exact path='/' component={Welcome} />
                           {/*<Route path='/about' component={AboutPage} />*/}
                           {/*<Route path="/projects" component={ProjectsPage} />*/}
                       </Switch>
