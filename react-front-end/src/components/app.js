@@ -4,8 +4,8 @@ import {
     Route,
     Switch,
 } from 'react-router-dom';
-import '../App.css';
-import Navigation from "./navigation.js";
+import './App.css';
+import Navigation from "./navigation/navigation.js";
 import Welcome from "./welcome/welcome";
 
 

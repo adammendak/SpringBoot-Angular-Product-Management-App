@@ -6,7 +6,7 @@ class Welcome extends React.Component {
         return (
             <div>
                 <h1 className={"text-center"}>Welcome </h1>
-                <img src={"./assets/product.png"} className={" center-block"}/>
+                <img src={"./assets/product.png"} className={" center-block"} alt={"shopping cart"}/>
             </div>
         )}
 }
