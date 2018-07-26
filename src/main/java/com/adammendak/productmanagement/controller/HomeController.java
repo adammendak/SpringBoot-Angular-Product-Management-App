@@ -11,4 +11,6 @@ public class HomeController {
     public String index() {
         return "index.html";
     }
+
+//    some test for local git config
 }
